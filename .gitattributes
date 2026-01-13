@@ -1,0 +1,6 @@
+# Treat common Oracle Forms and PL/SQL file types as PL/SQL for GitHub linguist
+*.fmb linguist-language=PLSQL
+*.fmx linguist-language=PLSQL
+*.pll linguist-language=PLSQL
+*.plb linguist-language=PLSQL
+*.sql linguist-language=PLSQL
