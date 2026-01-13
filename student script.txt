@@ -1,0 +1,25 @@
+-- 1.  COURSES  (lookup table)
+CREATE TABLE scott.courses_mohd (
+    course_id   NUMBER(4)   PRIMARY KEY,
+    course_name VARCHAR2(30) NOT NULL,
+    credits     NUMBER(2)
+);
+
+-- 2.  STUDENT_COURSE  (detail / many side)
+CREATE TABLE scott.student_course_mohd (
+    sc_id          NUMBER(8)   PRIMARY KEY,
+    student_id     NUMBER(8)   NOT NULL,
+    course_id      NUMBER(4)   NOT NULL,
+    enrol_date     DATE        DEFAULT SYSDATE,
+    grade          VARCHAR2(2),
+    CONSTRAINT fk_sc_student_mohd FOREIGN KEY (student_id) REFERENCES scott.mohammed_student(student_id),
+    CONSTRAINT fk_sc_course_mohd  FOREIGN KEY (course_id)  REFERENCES scott.courses_mohd(course_id)
+);
+
+-- 3.  sample lookup rows
+INSERT INTO scott.courses_mohd VALUES (1,'Database Fundamentals',3);
+INSERT INTO scott.courses_mohd VALUES (2,'Oracle Forms 6i',4);
+INSERT INTO scott.courses_mohd VALUES (3,'PL/SQL Programming',3);
+
+
+COMMIT;
